@@ -4,7 +4,7 @@ Research question: To what extent are ratings affected by the director of the mo
 
 ## Motivation
 
-[ Work on it later]
+The oscars are always overloaded with rumours about which famous director will win the prices that year. However, does a good director always result in a high rating of a movie? Is this rating biased on the director, or does a good director also receives low ratings for some of his movies? To find this out the ratings of the movies will be compared for each director to observe if any trends/effects can be find.
 
 ## Method and results
 
