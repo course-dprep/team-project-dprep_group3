@@ -1,6 +1,6 @@
 # Data Preperation Team Project
 
-Research question: To what extend does a first episode rating affects overall rating and season numbers? 
+Research question: To what extent are ratings affected by the director of the movie?
 
 ## Motivation
 
