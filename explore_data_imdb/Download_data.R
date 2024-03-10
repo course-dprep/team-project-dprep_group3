@@ -1,5 +1,9 @@
 #download data
 
+library(data.table)
+library(readr)
+library(dplyr)
+
 download_data <- function(url, filename){
   download.file(url = url, destfile = paste0(filename, ".csv"))
 }
