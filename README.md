@@ -1,10 +1,12 @@
 # Data Preperation Team Project
 
+## Introduction
 Research question: To what extent are ratings affected by the director of the movie?
+Should a movie scene always go with a well known director to be sure of succes, or are well known directors more critically reviewed? And what other factors could influence the relation between the director and the rating of a movie? This will be further analyzed in this research.
 
 ## Motivation
 
-The oscars are always overloaded with rumours about which famous director will win the prices that year. However, does a good director always result in a high rating of a movie? Is this rating biased on the director, or does a good director also receives low ratings for some of his movies? To find this out the ratings of the movies will be compared for each director to observe if any trends/effects can be find.
+The oscars are always overloaded with rumours about which famous director will win the prices that year. However, does a good director always result in a high rating of a movie? Is this rating biased on the director, or does a good director also receives low ratings for some of his movies? For this questions, the IMDb ratings data set can provide valuable insides. This data will be combined with the director of the movies to observe if any trends/effects can be find. This could provide valuable insides in the film industry and for large film houses.
 
 ## Method and results
 
