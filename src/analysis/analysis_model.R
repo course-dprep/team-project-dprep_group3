@@ -1,10 +1,9 @@
 #ANALYSIS FOR RESEARCH QUSTIONS
 
-library(ggplot2)
-library(dplyr)
+library(tidyverse)
 
 # Read data from CSV file
-movies_directors_df <- read.csv("pivot_table.csv")  
+movies_directors_df <- read.csv("../../gen/data_preparation/output/pivot_table.csv")  
 
 
 #RESEARCH QUESTION 1:Are directors listed in the top 100 more likely to receive higher average ratings compared to those who are not listed?
@@ -15,7 +14,7 @@ lm_model <- lm(avg_director_rating ~ top_100, data = movies_directors_df)
 summary(lm_model)
 # Plot average ratings vs. top 100 with regression line
 
-pdf("scatterplot_avg_ratings_vs_top100.pdf")
+pdf("../../gen/analysis/output/scatterplot_avg_ratings_vs_top100.pdf")
 
 # Plotting average director ratings vs. top 100 with regression line 
 plot(movies_directors_df$top_100, movies_directors_df$avg_director_rating, 
@@ -29,6 +28,7 @@ legend("topleft", legend = c("Data", "Regression Line"),
 # Close the PDF device
 dev.off()
 
+pdf("../../gen/analysis/output/correlation_matrix_avg_rating_vs_avg_votes.pdf")
 
 #RESEARCH QUESTION 2: Is there a correlation between the average ratings of movies directed by a director and the average number of votes those movies receive?
 library(corrplot) 
@@ -53,20 +53,23 @@ ggplot(movies_directors_df, aes(x = avg_director_rating, y = avg_num_votes)) +
   geom_text(x = 4, y = 100000, label = paste("Correlation Coefficient:", round(correlation, 2)), color = "red") +
   theme_minimal()
 
+# Close the PDF device
+dev.off()
+
+
 #Research questıon 3: To what extend does beıng a top 100 dırector or not ınfluence average ratıng, and how does the amount of revıews ınfluence thıs relatıonshıp?
 
 # Fit ANOVA model
 model_anova <- lm(avg_director_rating ~ top_100 * avg_num_votes, data = movies_directors_df)
 
+pdf("../../gen/analysis/output/anova_interaction_top100_directors.pdf")
 
 # Perform ANOVA
 anova_result <- anova(model_anova)
 
 # Print ANOVA table
-print(anova_result)
+print(summary(anova_result))
 
-
-
-
-
+# Close the PDF device
+dev.off()
 
