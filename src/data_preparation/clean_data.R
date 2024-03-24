@@ -2,12 +2,14 @@ library(readr)
 library(dplyr)
 library(stringr)
 
+library(tidyverse)
+
 # CLEAN DATA
-crew <- read_delim("crew.csv", delim = "\t", col_names = TRUE)
-ratings <- read_delim("ratings.csv", delim = "\t", col_names = TRUE)
-name <- read_delim("names.csv", delim = "\t", col_names = TRUE)
-basics <-read_delim("basics.csv", delim = "\t", col_names = TRUE)
-directors <- read.csv("top_100.csv", header = TRUE, sep = ",")
+crew <- read_delim("../../data/crew.csv", delim = "\t", col_names = TRUE)
+ratings <- read_delim("../../data/ratings.csv", delim = "\t", col_names = TRUE)
+name <- read_delim("../../data/names.csv", delim = "\t", col_names = TRUE)
+basics <-read_delim("../../data/basics.csv", delim = "\t", col_names = TRUE)
+directors <- read.csv("../../data/top_100.csv", header = TRUE, sep = ",")
 
 # FILTER
 # Filter for Movies
@@ -30,7 +32,7 @@ average_numVotes <- mean(ratings$numVotes)
 # Create a new data frame containing rows where numVotes is above the average
 above_average_ratings <- ratings[ratings$numVotes > average_numVotes, ]
 
-write.csv(above_average_ratings, file = "above_average_numVotes.csv", row.names = FALSE)
+write.csv(above_average_ratings, file = "../../gen/data_preparation/temp/above_average_numVotes.csv", row.names = FALSE)
 
 #Cleaning the top 100 directors data set
 top_100_directors_filtered <- directors %>%
@@ -39,8 +41,6 @@ top_100_directors_filtered <- directors %>%
 #Match the column names of top 100 directors with other data sets
 colnames(top_100_directors_filtered) <- c("position", "directors")
 
-
-
-
-
+# Save cleaned data
+save.image("../../gen/data_preparation/temp/test.RData")
 

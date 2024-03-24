@@ -1,8 +1,8 @@
 #PIVOT TABLE
-library(dplyr)
-##import the data
-df <- read_csv("movies_directors_avg_ratings.csv")
 
+library(tidyverse)
+##import the data
+df <- read_csv("../../gen/data_preparation/output/movies_directors_avg_ratings.csv")
 
 ## Create pivot table 
 # Pivot the data to get average rating for each director
@@ -16,4 +16,4 @@ new_order <- c("directors","primaryName","num_movies","avg_num_votes","avg_direc
 pivot_table <- pivot_table %>% 
   select(new_order)
 
-write_csv(pivot_table, "pivot_table.csv")
+write_csv(pivot_table, "../../gen/data_preparation/output/pivot_table.csv")
