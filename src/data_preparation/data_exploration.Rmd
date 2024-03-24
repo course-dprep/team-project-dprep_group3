@@ -1,0 +1,129 @@
+---
+title: Exploring IMDb Director Ratings
+authors: "Busenaz Atahan, Sila Bozoglu, Jesse Dekker, Jennicka Wijma, Boris Willekens"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+**AUTHORS:** - Busenaz Atahan - Sila Bozoglu - Jesse Dekker - Jennicka Wijma - Boris Willekens
+
+# Introduction
+
+Within this report you will find an analysis of multiple merged IMDb datasets. In particular the Crew, Ratings, Titles and Names datasets are used. These datasets were cleaned and merged together with a list of the top 100 directors (the most frequently viewed list on IMDb) to create one dataframe. The datasets are described below:
+
+## Crew
+
+### Description
+
+-   `tconst` (string) - alphanumeric unique identifier of the title
+-   `directors` (array of nconsts) - director(s) of the given title
+-   `writers` (array of nconsts) – writer(s) of the given title
+
+## Ratings
+
+### Description
+
+-   `tconst` (string) - alphanumeric unique identifier of the title
+-   `averageRating` – weighted average of all the individual user ratings
+-   `numVotes` - number of votes the title has received
+
+## Titles
+
+### Description
+
+-   `tconst` (string) - alphanumeric unique identifier of the title
+-   `titleType` (string) – the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)
+-   `primaryTitle` (string) – the more popular title / the title used by the filmmakers on promotional materials at the point of release
+-   `originalTitle` (string) - original title, in the original language
+-   `isAdult` (boolean) - 0: non-adult title; 1: adult title
+-   `startYear` (YYYY) – represents the release year of a title. In the case of TV Series, it is the series start year
+-   `endYear` (YYYY) – TV Series end year. ‘\N’ for all other title types
+-   `runtimeMinutes` – primary runtime of the title, in minutes
+-   `genres` (string array) – includes up to three genres associated with the title
+
+## Names
+
+### Description
+
+-   `nconst` (string) - alphanumeric unique identifier of the name/person
+-   `primaryName` (string)– name by which the person is most often credited
+-   `birthYear` – in YYYY format
+-   `deathYear` – in YYYY format if applicable, else '\N'
+-   `primaryProfession` (array of strings)– the top-3 professions of the person
+-   `knownForTitles` (array of tconsts) – titles the person is known for
+
+# Data Exploration
+
+In this section the merged dataframe will be explored. 
+
+## Summary Statistics
+
+Some main summary statistics for the created dataframe, here called df.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+df <- read_csv("../../gen/data_preparation/output/pivot_table.csv")
+```
+
+```{r message=FALSE, warning=FALSE}
+summary(df)
+head(df)
+tail(df)
+```
+
+## Checking the summary of average ratings of directors
+```{r message=FALSE, warning=FALSE}
+summary(df$avg_director_rating)
+```
+
+## Checking the standard deviation and variance in order to see if our data has the variability
+
+### Standard Deviation
+```{r message=FALSE, warning=FALSE}
+sd_avg_ratings <- sd(df$avg_director_rating)
+print(sd_avg_ratings)
+```
+
+### Variance
+```{r message=FALSE, warning=FALSE}
+variance_avg_ratings <- var(df$avg_director_rating)
+print(variance_avg_ratings)
+```
+
+# Data visualisation
+
+Finally, some visualisation is given to the data.
+
+## Histogram distribution of average director rating
+```{r message=FALSE, warning=FALSE}
+hist(df$avg_director_rating, main = "Histogram of Average Director Ratings", 
+     xlab = "Average Ratings")
+```
+
+## Rating of Top 100 directors vs. "all" directors.
+```{r message=FALSE, warning=FALSE}
+ggplot(df, aes(x = top_100, y = avg_director_rating, color = factor(top_100))) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  theme_minimal() +
+  labs(title = "Jittered Scatter Plot of Average Ratings",
+       x = "Directors",
+       y = "Average Ratings",
+       color = "Directors") +
+  scale_color_manual(values = c("0" = "magenta", "1" = "lime green"))
+```
+
+## Scatter plot of average ratings vs. average number of votes
+```{r message=FALSE, warning=FALSE}
+plot(df$avg_director_rating, df$avg_num_votes,
+     xlab = "Average Director Ratings", ylab = "Average Number of Votes",
+     main = "Average Director Ratings vs. Average Number of Votes")
+```
