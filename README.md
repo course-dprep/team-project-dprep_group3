@@ -6,7 +6,7 @@ Should a movie scene always go with a well known director to be sure of succes, 
 
 ## Motivation
 
-The oscars are always overloaded with rumours about which famous director will win the prices that year. However, does a good director always result in a high rating of a movie? Is this rating biased on the director, or does a good director also receives low ratings for some of his movies? For this questions, the IMDb ratings data set can provide valuable insides. This data will be combined with the director of the movies to observe if any trends/effects can be find. This could provide valuable insides in the film industry and for large film houses.
+The oscars are always overloaded with rumours about which famous director will win the prices that year. However, does a good director always result in a high rating of a movie? Is this rating biased on the director, or does a good director also receives low ratings for some of his movies? For this questions, the IMDb ratings data set can provide valuable insides. This data will be combined with the director of the movies to observe if any trends/effects can be find. This could provide valuable insides in the film industry and for large film houses. After analysing these trends/effects it will be analyzed why these treds/effects take place.
 
 ## Method and results
 
