@@ -28,6 +28,7 @@ director_avg_rating <- movies_ratings_with_directors_cleaned %>%
 # Save the summarized data to a CSV file
 write.csv(director_avg_rating, file = "../../gen/data_preparation/temp/director_avg_rating.csv", row.names = FALSE)
 
+
 # Perform a left join between the original data frame and the summarized data frame
 merged_movies_directors_avgratings <- left_join(movies_ratings_with_directors_cleaned, director_avg_rating, by = "directors")
 
@@ -69,4 +70,5 @@ merged_movies_directors_avg_ratings <- merged_movies_directors_avg_ratings %>%
   mutate(top_100 = if_else(directors %in% top_100_director_ratings_cleaned$directors, 1, 0))
 
 # Store the final data frame as movies_directors_avg_ratings.csv
+
 write.csv(merged_movies_directors_avg_ratings, "../../gen/data_preparation/output/movies_directors_avg_ratings.csv")

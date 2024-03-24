@@ -1,8 +1,10 @@
+library(readr)
+library(dplyr)
+library(stringr)
 
 library(tidyverse)
 
 # CLEAN DATA
-
 crew <- read_delim("../../data/crew.csv", delim = "\t", col_names = TRUE)
 ratings <- read_delim("../../data/ratings.csv", delim = "\t", col_names = TRUE)
 name <- read_delim("../../data/names.csv", delim = "\t", col_names = TRUE)
@@ -41,3 +43,4 @@ colnames(top_100_directors_filtered) <- c("position", "directors")
 
 # Save cleaned data
 save.image("../../gen/data_preparation/temp/test.RData")
+
