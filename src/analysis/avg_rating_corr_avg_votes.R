@@ -1,5 +1,5 @@
 # ANALYSIS FOR RESEARCH QUESTION 2
-
+install.packages("corrplot")
 library(tidyverse)
 
 # RESEARCH QUESTION 2: Is there a correlation between the average ratings of movies directed by a director and the average number of votes those movies receive?
