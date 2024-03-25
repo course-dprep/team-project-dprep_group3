@@ -83,6 +83,9 @@ To execute the analysis, please follow these instructions:
    Change your working directory to the cloned repository:  
    `cd team-project-dprep_group3`
 
+3. **Open Command Prompt as Administrator:**  
+Go to your search bar, type "cmd", then right-click on Command Prompt and select "Run as administrator." It's important to run the Makefile as administrator to ensure that PANDOC has the necessary permissions.
+
 
 3. **Run the Makefile:**
 Execute the following command in your terminal:  
