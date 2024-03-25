@@ -3,7 +3,7 @@
 library(tidyverse)
 
 # Read data from CSV file
-movies_directors_df <- read.csv("../../gen/data_preparation/output/pivot_table.csv")  
+movies_directors_df <- read_csv("../../gen/data_preparation/output/pivot_table.csv")  
 
 
 #RESEARCH QUESTION 1:Are directors listed in the top 100 more likely to receive higher average ratings compared to those who are not listed?

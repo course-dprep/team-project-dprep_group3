@@ -8,7 +8,7 @@ output:
 
 # Introduction
 
-The following ANOVA table provides an answer to research question 3: To what extend does beıng a top 100 dırector or not ınfluence average ratıng, and how does the amount of revıews ınfluence thıs relatıonshıp?
+The following ANOVA table provides an answer to research question 3: To what extend does being a top 100 director or not influence average director rating, and how does the amount of average votes influence this relationship?
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -31,4 +31,4 @@ print(anova_result)
 
 # Explanation
 
-As is visible from the ANOVA all paths are significant (P<0.05). This means that the average director rating is higher for directors in the top 100 list compared to directors not in that list. In addition, the number of votes a director compiles also leads to an increase in the average rating a director receives. Finally, the ANOVA shows that there is an interaction effect. Which means that .... (needs to be figured out).
+As is visible from the ANOVA all paths are significant (P<0.05). This means that the average director rating is higher for directors in the top 100 list compared to directors not in that list. In addition, the number of votes a director compile also leads to an increase in the average rating a director receives. Finally, when we check the last line of ANOVA output which shows the interaction effect , the relationship between average rating of a director and average number of votes differs significantly depending on whether a director is categorized as top 100 or not since the p-value is below the threshold point of 0.05 and significant.

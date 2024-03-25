@@ -26,7 +26,7 @@ director_avg_rating <- movies_ratings_with_directors_cleaned %>%
   summarize(avg_director_rating = mean(averageRating, na.rm = TRUE))
 
 # Save the summarized data to a CSV file
-write.csv(director_avg_rating, file = "../../gen/data_preparation/temp/director_avg_rating.csv", row.names = FALSE)
+write_csv(director_avg_rating, file = "../../gen/data_preparation/temp/director_avg_rating.csv")
 
 
 # Perform a left join between the original data frame and the summarized data frame
@@ -46,7 +46,7 @@ average_numMovies_directors
 # Create a new data frame containing rows where # of movies are above the average
 above_average_movies <- directors_count[directors_count$num_movies > average_numMovies_directors, ]
 
-write.csv(above_average_movies, file = "../../gen/data_preparation/temp/above_average_movies.csv", row.names = FALSE)
+write_csv(above_average_movies, file = "../../gen/data_preparation/temp/above_average_movies.csv")
 
 # Step 3: Merge the dataset by removing movies directed by those directors
 merged_movies_directors_avg_ratings <- left_join(above_average_movies, merged_movies_directors_avgratings, by = "directors")
@@ -71,4 +71,4 @@ merged_movies_directors_avg_ratings <- merged_movies_directors_avg_ratings %>%
 
 # Store the final data frame as movies_directors_avg_ratings.csv
 
-write.csv(merged_movies_directors_avg_ratings, "../../gen/data_preparation/output/movies_directors_avg_ratings.csv")
+write_csv(merged_movies_directors_avg_ratings, "../../gen/data_preparation/output/movies_directors_avg_ratings.csv")
