@@ -1,7 +1,3 @@
-library(readr)
-library(dplyr)
-library(stringr)
-
 library(tidyverse)
 
 # CLEAN DATA
@@ -9,7 +5,7 @@ crew <- read_delim("../../data/crew.csv", delim = "\t", col_names = TRUE)
 ratings <- read_delim("../../data/ratings.csv", delim = "\t", col_names = TRUE)
 name <- read_delim("../../data/names.csv", delim = "\t", col_names = TRUE)
 basics <-read_delim("../../data/basics.csv", delim = "\t", col_names = TRUE)
-directors <- read.csv("../../data/top_100.csv", header = TRUE, sep = ",")
+directors <- read_csv("../../data/top_100.csv")
 
 # FILTER
 # Filter for Movies
@@ -32,7 +28,7 @@ average_numVotes <- mean(ratings$numVotes)
 # Create a new data frame containing rows where numVotes is above the average
 above_average_ratings <- ratings[ratings$numVotes > average_numVotes, ]
 
-write.csv(above_average_ratings, file = "../../gen/data_preparation/temp/above_average_numVotes.csv", row.names = FALSE)
+write_csv(above_average_ratings, file = "../../gen/data_preparation/temp/above_average_numVotes.csv")
 
 #Cleaning the top 100 directors data set
 top_100_directors_filtered <- directors %>%

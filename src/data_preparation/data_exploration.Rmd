@@ -101,7 +101,7 @@ print(variance_avg_ratings)
 
 # Data visualisation
 
-Finally, some visualisation is given to the data.
+Finally, some visualization is given to the data.
 
 ## Histogram distribution of average director rating
 ```{r message=FALSE, warning=FALSE}

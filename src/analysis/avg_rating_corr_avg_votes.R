@@ -5,7 +5,7 @@ library(tidyverse)
 # RESEARCH QUESTION 2: Is there a correlation between the average ratings of movies directed by a director and the average number of votes those movies receive?
 
 # Read data from CSV file
-movies_directors_df <- read.csv("../../gen/data_preparation/output/pivot_table.csv")
+movies_directors_df <- read_csv("../../gen/data_preparation/output/pivot_table.csv")
 
 # Open PDF
 pdf("../../gen/analysis/output/correlation_matrix_avg_rating_vs_avg_votes.pdf")
@@ -19,6 +19,7 @@ correlation_matrix <- cor(movies_directors_df[, c("avg_director_rating", "avg_nu
 print(correlation_matrix)
 
 # Plotting correlation matrix
+library(corrplot)
 corrplot(cor(movies_directors_df[, c("avg_director_rating", "avg_num_votes")]), method="number")
 
 # Plotting
