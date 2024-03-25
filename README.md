@@ -15,17 +15,30 @@ Our approach involves detailed data preparation, including downloading, cleaning
 
 ### Results
 
-![alt text](images/image.png)
+## Scatter Plot: Ratings vs. Votes for Directors
+This scatter plot compares directors' average movie ratings with the number of votes they receive, highlighting popularity versus quality.
+![Scatter Plot of Average Ratings vs. Average Votes for Directors](images/image.png)
 
-![alt text](images/image-1.png)
+## Rating Trends: Top 100 Directors
+The line graph depicts rating trends across the top 100 directors, showing a potential correlation between a director's ranking and their average ratings.
+![Average Director Ratings vs. Top 100 Directors](images/image-1.png)
 
-![alt text](images/image-2.png)
+## Histogram: Distribution of Director Ratings
+A histogram showing the distribution of average ratings for directors, revealing the most common rating ranges.
+![Histogram of Average Director Ratings](images/image-2.png)
 
-![alt text](images/image-3.png)
+## Jittered Plot: Rating Distribution
+This jittered scatter plot displays the distribution of ratings among directors, avoiding overlap for clearer visualization.
+![Jittered Scatter Plot of Average Ratings](images/image-3.png)
 
-![alt text](images/image-4.png)
+## Correlation Matrix: Ratings and Votes
+A matrix displaying the correlation between directors' average ratings and the average number of votes, providing insight into the relationship between the two metrics.
+![Correlation Matrix of Average Ratings and Votes](images/image-4.png)
 
-![alt text](images/image-5.png)
+## Detailed Scatter: Ratings vs. Number of Votes
+A detailed scatter plot showing the relationship between average director ratings and the number of votes, offering a granular view of the data.
+![Average Director Ratings vs. Average Number of Votes](images/image-5.png)
+
 
 ## Repository overview
 
