@@ -1,7 +1,7 @@
 
 library(tidyverse)
 
-load("../../gen/data_preparation/temp/test.RData")
+load("../../gen/data_preparation/temp/cleaned_data.RData")
 
 # MERGE
 

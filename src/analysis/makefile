@@ -1,12 +1,22 @@
 OUTPUT = ../../gen/analysis/output
 
-first: $(OUTPUT)/scatterplot_avg_ratings_vs_top100.pdf $(OUTPUT)/correlation_matrix_avg_rating_vs_avg_votes.pdf $(OUTPUT)/anova_interaction_top100_directors.pdf
+first: $(OUTPUT)/scatterplot_avg_ratings_vs_top100.pdf $(OUTPUT)/correlation_matrix_avg_rating_vs_avg_votes.pdf $(Output)/anova_interaction_model.pdf
+
 
 ../../gen/data_preparation/output/pivot_table.csv:
 	make -C ../data_preparation -f Makefile first
+	
+#Analysis Visualisation RQ3
+$(Output)/anova_interaction_model.pdf: ../../gen/data_preparation/output/pivot_table.csv anova_avg_rating_interaction_model.Rmd
+	R -e "rmarkdown::render('anova_avg_rating_interaction_model.Rmd', output_file='$(Output)/anova_interaction_model.pdf')"
 
-$(OUTPUT)/scatterplot_avg_ratings_vs_top100.pdf $(OUTPUT)/correlation_matrix_avg_rating_vs_avg_votes.pdf $(OUTPUT)/anova_interaction_top100_directors.pdf: ../../gen/data_preparation/output/pivot_table.csv analysis_model.R
-	Rscript --vanilla analysis_model.R
+#Analysis Visualisation RQ2
+$(OUTPUT)/correlation_matrix_avg_rating_vs_avg_votes.pdf: ../../gen/data_preparation/output/pivot_table.csv avg_rating_corr_avg_votes.R
+	Rscript --avg_rating_corr_avg_votes.R
+
+#Analysis Visualisation RQ1
+$(OUTPUT)/scatterplot_avg_ratings_vs_top100.pdf: ../../gen/data_preparation/output/pivot_table.csv regression_ratings_vs_top100.R
+	Rscript --regression_ratings_vs_top100.R
 	
 clean:
 	R -e "unlink('../../gen/analysis/temp/*.*')"

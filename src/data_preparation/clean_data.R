@@ -42,5 +42,5 @@ top_100_directors_filtered <- directors %>%
 colnames(top_100_directors_filtered) <- c("position", "directors")
 
 # Save cleaned data
-save.image("../../gen/data_preparation/temp/test.RData")
+save.image("../../gen/data_preparation/temp/cleaned_data.RData")
 
