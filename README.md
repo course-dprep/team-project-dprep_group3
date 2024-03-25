@@ -30,8 +30,8 @@ Our approach involves detailed data preparation, including downloading, cleaning
 ## Repository overview
 
 ```
-├── README.md
 ├── data                  
+├── images
 ├── gen
 │   ├── analysis           
 │   ├── data-preparation   
@@ -39,7 +39,11 @@ Our approach involves detailed data preparation, including downloading, cleaning
 └── src
     ├── analysis           
     ├── data-preparation   
-    └── paper     
+    └── paper 
+├── README.md
+├── LISENCE
+└── .gitignore
+    
 ```
           
 
