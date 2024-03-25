@@ -1,0 +1,34 @@
+---
+title: "Influence of top 100 director on average director rating"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# Introduction
+
+The following ANOVA table provides an answer to research question 3: To what extend does beıng a top 100 dırector or not ınfluence average ratıng, and how does the amount of revıews ınfluence thıs relatıonshıp?
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+library(tidyverse)
+tinytex::install_tinytex(force = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+df <- read_csv("../../gen/data_preparation/output/pivot_table.csv")
+```
+
+```{r message=FALSE, warning=FALSE}
+model_anova <- lm(avg_director_rating ~ top_100 * avg_num_votes, data = df)
+anova_result <- anova(model_anova)
+print(anova_result)
+```
+
+# Explanation
+
+As is visible from the ANOVA all paths are significant (P<0.05). This means that the average director rating is higher for directors in the top 100 list compared to directors not in that list. In addition, the number of votes a director compiles also leads to an increase in the average rating a director receives. Finally, the ANOVA shows that there is an interaction effect. Which means that .... (needs to be figured out).
